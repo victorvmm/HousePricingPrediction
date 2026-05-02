@@ -3,12 +3,12 @@ This project applies Machine Learning techniques to predict house prices in Ames
 
 # Technologies and libraries
 
-- Python: 3.12.4
-- Scikit-learn: 1.4.0
-- XGBoost: 
-- Pandas: 
-- Numpy: 
-- MatPlotLib:
+- Python: 3.12.3
+- Scikit-learn: 1.8.0
+- XGBoost: 3.2.0
+- Pandas: 3.0.2
+- Numpy: 2.4.4
+- MatPlotLib: 3.10.8
 
 # Files
 
@@ -25,9 +25,9 @@ Contains non-labeled data, utilized to test the model
 Data preprocessing was performed in this file, including handling missing values, encoding categorical variables, feature selection (removal of low-impact or potentially bias-inducing features), ensuring consistency between training and test datasets.
 
 -  Model.ipynb:
-Contains all prediction models. The models chosen were Support Vector Machine (SVR), XGBoost, Random Forest and AdaBoost. These models were chosen based on the size of the dataset and the amount of variables, meaning it required more complex models, capable of predicting more accurately in high-dimensional and non-linear spaces. Hyperparameters were optimized using GridSearchCV in two stages: coarse search (broad parameter ranges) and fine search (refined search around the best values).
+Contains all prediction models. The models selected were Support Vector Machine (SVR), XGBoost, Random Forest and AdaBoost, based on the size of the dataset and the amount of variables, meaning it required more complex models, capable of makinn more accurate predictions in high-dimensional and non-linear spaces. Hyperparameters were optimized using GridSearchCV in two stages: coarse search (broad parameter ranges) and fine search (refined search around the best values). Models were evaluated by R² score and relation between MAE and sale price mean.
 
-# Models description
+# Models final parameters
 
 Support Vector Machine:
 - C: 11
@@ -41,10 +41,17 @@ XGBoost:
 - gamma: 0
 
 Random Forest:
-- 
+- n_estimators: 400
+- max_depth: 30
+- min_samples_split: 2
+- bootstrap: False
+- max_features: sqrt
 
 AdaBoost:
-- 
+- n_estimators: 400
+- learning_rate: 0.1
+- estimator: DecisionTreeRegressor(max_depth=3)
+- loss: exponential
 
 # Results
 The best-performing models were:
@@ -54,7 +61,7 @@ The best-performing models were:
 - - Relative MAE: 8.8%
 - Random Forest
 - - R² Score: 0.89
-- - Relative MAE: 9.4%
+- - Relative MAE: 9.2%
 
 These results indicate strong predictive performance, with ensemble methods outperforming other models.
 
@@ -63,15 +70,13 @@ These results indicate strong predictive performance, with ensemble methods outp
 Bar plots were used to compare predictions from different models, highlighting differences in predicted prices for selected houses.
 
 # Sources
-The dataset used in this project comes from the Kaggle competition:
+The train and test datasets used in this project, as well as the data description .txt, comes from the Kaggle competition:
 "House Prices: Advanced Regression Techniques"
 
 It includes:
+- 79 explanatory variables describing house features
+- A target variable: SalePrice
 
-79 explanatory variables describing house features
-A target variable: SalePrice
-
-Project URL: 
-
+Dataset URL: 
 https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques
 
