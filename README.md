@@ -25,7 +25,7 @@ Contains non-labeled data, utilized to test the model
 Data preprocessing was performed in this file, including handling missing values, encoding categorical variables, feature selection (removal of low-impact or potentially bias-inducing features), ensuring consistency between training and test datasets.
 
 -  Model.ipynb:
-Contains all prediction models. The models selected were Support Vector Machine (SVR), XGBoost, Random Forest and AdaBoost, based on the size of the dataset and the amount of variables, meaning it required more complex models, capable of makinn more accurate predictions in high-dimensional and non-linear spaces. Hyperparameters were optimized using GridSearchCV in two stages: coarse search (broad parameter ranges) and fine search (refined search around the best values). Models were evaluated by R² score and relation between MAE and sale price mean.
+Contains all prediction models. The selected models were Support Vector Machine (SVR), XGBoost, Random Forest and AdaBoost, based on the size of the dataset and the amount of variables, which requires more complex models, capable of making more accurate predictions in high-dimensional and non-linear spaces. Hyperparameters were optimized using GridSearchCV in two stages: coarse search (broad parameter ranges) and fine search (refined search around the best values). Models were evaluated by R² score and relation between MAE and sale price mean.
 
 # Models final parameters
 
